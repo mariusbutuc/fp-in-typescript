@@ -1,15 +1,19 @@
 export {}
 /*
-Task: Create a function that takes a string "firstname" or
-"lastname" and a Person and gets the Firstname or Lastname property
+Task: Create a function that takes a string "firstName" or
+"age" and a Person and gets the FirstName or FlexibleAge property
 off of the Person object
 */
-type Firstname = string
-type Lastname = string
+type FirstName = string
+type LastName = string
 type FlexibleAge = number | string
 
 interface Person {
-	firstname: Firstname
-	lastname: Lastname
+	firstName: FirstName
+	lastName: LastName
 	age: FlexibleAge
 }
+
+type Foo = FirstName | FlexibleAge
+
+const getNameOrAge = (person: Person, choice: string): Foo => (choice === "age") ? person.age : person.firstName
